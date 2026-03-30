@@ -18,13 +18,11 @@ app.add_middleware(
 class PasswordRequest(BaseModel):
     password: str
 
-@app.post("/print")
-async def print_password(request: PasswordRequest):
-    print(f"Received password: {request.password}")
-    return {"message": f"printed: {request.password}"}
 
 @app.post("/audit")
 async def audit_password(request: PasswordRequest):
+    if not request.password:
+        return {"error": "Password is required."}
     result = zxcvbn.zxcvbn(request.password)
     return {
         "score": result["score"],
@@ -32,3 +30,11 @@ async def audit_password(request: PasswordRequest):
         "feedback": result["feedback"],
         "crack_times_display": result["crack_times_display"]
     }
+
+
+#this was for testing, im keeping it just in case
+#will remove once we have a final product
+#@app.post("/print")
+#async def print_password(request: PasswordRequest):
+#    print(f"Received password: {request.password}")
+#    return {"message": f"printed: {request.password}"}
