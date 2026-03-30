@@ -22,3 +22,13 @@ class PasswordRequest(BaseModel):
 async def print_password(request: PasswordRequest):
     print(f"Received password: {request.password}")
     return {"message": f"printed: {request.password}"}
+
+@app.post("/audit")
+async def audit_password(request: PasswordRequest):
+    result = zxcvbn.zxcvbn(request.password)
+    return {
+        "score": result["score"],
+        "guesses": result["guesses"],
+        "feedback": result["feedback"],
+        "crack_times_display": result["crack_times_display"]
+    }
