@@ -14,3 +14,11 @@ app.add_middleware(
     allow_methods=["*"], #allow all methods (get/post)
     allow_headers=["*"], #allow all headers
 )
+
+class PasswordRequest(BaseModel):
+    password: str
+
+@app.post("/print")
+async def print_password(request: PasswordRequest):
+    print(f"Received password: {request.password}")
+    return {"message": f"printed: {request.password}"}
