@@ -24,11 +24,13 @@ async def audit_password(request: PasswordRequest):
     if not request.password:
         return {"error": "Password is required."}
     result = zxcvbn.zxcvbn(request.password)
+    #our password cracking api
     return {
         "score": result["score"],
         "guesses": result["guesses"],
         "feedback": result["feedback"],
         "crack_times_display": result["crack_times_display"]
+        #dissects the output into readable lines
     }
 
 
