@@ -20,17 +20,15 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import axios from 'axios'
+import { usePasswordStore } from '@/stores/passwordStore'
 
 const password = ref('')
+const store = usePasswordStore()
 
 const checkPassword = async () => {
-  try {
-    const response = await axios.post('http://localhost:8000/audit', {
-      password: password.value,
-    })
-    console.log(response.data)
-  } catch (error) {
-    console.error('Error checking password strength:', error)
-  }
+  const response = await axios.post('http://localhost:8000/audit', {
+    password: password.value,
+  })
+  store.addPasswordEntry(password.value, response.data)
 }
 </script>
