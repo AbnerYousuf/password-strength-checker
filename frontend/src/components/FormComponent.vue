@@ -1,24 +1,20 @@
 <template>
-  <div
-    class="min-h-screen bg-linear-to-br from-white to-teal-200 flex items-center justify-center p-4"
-  >
-    <form @submit.prevent="checkPassword">
-      <div
-        class="border-2 border-black bg-white rounded-lg w-full max-w-md shadow-lg mb-2 flex flex-col"
+  <form @submit.prevent="checkPassword">
+    <div
+      class="border-2 border-black bg-white rounded-lg w-full max-w-md shadow-lg mb-2 flex flex-col"
+    >
+      <input v-model="password" type="text" placeholder="Enter password" />
+    </div>
+    <!--it's text because you want to actually see the password you're testing-->
+    <div>
+      <button
+        class="rounded bg-teal-300 hover:bg-teal-400 text-white hover:cursor-pointer px-4 py-2 border-teal-600 border-2 w-full max-w-md"
+        type="submit"
       >
-        <input v-model="password" type="text" placeholder="Enter password" />
-      </div>
-      <!--it's text because you want to actually see the password you're testing-->
-      <div>
-        <button
-          class="rounded bg-teal-300 hover:bg-teal-400 text-white hover:cursor-pointer px-4 py-2 border-teal-600 border-2 w-full max-w-md"
-          type="submit"
-        >
-          Check Strength
-        </button>
-      </div>
-    </form>
-  </div>
+        Check Strength
+      </button>
+    </div>
+  </form>
 </template>
 
 <script setup lang="ts">
