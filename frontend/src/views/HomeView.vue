@@ -4,7 +4,7 @@
   >
     <div><PageHeaderComponent /></div>
     <div><FormComponent /></div>
-    <div v-if="lastEntry" class="mt-8">
+    <div v-if="lastEntry" class="mt-8 text-teal-600">
       <ResultsComponent
         :password="lastEntry.password"
         :results="lastEntry.results"
