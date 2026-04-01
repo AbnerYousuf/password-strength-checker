@@ -1,14 +1,9 @@
 <template>
-  <div
-    class="min-h-screen flex flex-col items-center justify-center p-4"
-  >
+  <div class="min-h-screen flex flex-col items-center justify-center p-4">
     <div><PageHeaderComponent /></div>
     <div><FormComponent /></div>
     <div v-if="lastEntry" class="mt-8 text-teal-600">
-      <ResultsComponent
-        :password="lastEntry.password"
-        :results="lastEntry.results"
-      />
+      <ResultsComponent :password="lastEntry.password" :results="lastEntry.results" />
     </div>
   </div>
 </template>

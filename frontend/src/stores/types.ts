@@ -1,11 +1,11 @@
 export interface ResultsList {
-  score: number;
+  score: number
   feedback: {
-    warning: string;
-    suggestions: string[];
-  };
-  guesses: number;
+    warning: string
+    suggestions: string[]
+  }
+  guesses: number
   crack_times_display: {
-    [key: string]: string;
-  };
+    [key: string]: string
+  }
 }

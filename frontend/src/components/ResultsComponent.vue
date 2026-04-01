@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col items-start bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
     <h3 class="text-lg font-semibold mb-4">Audit Results For: {{ password }}</h3>
-    
+
     <!-- Strength Meter -->
     <div class="w-full mb-4">
       <div class="flex justify-between items-center mb-2">
@@ -38,7 +38,11 @@
     <div v-if="props.results.feedback.suggestions.length > 0" class="w-full border-t mt-4 pt-4">
       <p class="text-sm font-medium mb-2">Suggestions:</p>
       <ul class="text-sm text-gray-700 space-y-1">
-        <li v-for="(suggestion, index) in props.results.feedback.suggestions" :key="index" class="flex items-start">
+        <li
+          v-for="(suggestion, index) in props.results.feedback.suggestions"
+          :key="index"
+          class="flex items-start"
+        >
           <span class="mr-2">•</span>
           <span>{{ suggestion }}</span>
         </li>
@@ -49,7 +53,11 @@
     <div class="w-full mt-4 pt-4 border-t">
       <p class="text-sm font-medium mb-2">Time to crack:</p>
       <div class="text-xs text-gray-600 space-y-1">
-        <div v-for="(time, method) in props.results.crack_times_display" :key="method" class="flex justify-between">
+        <div
+          v-for="(time, method) in props.results.crack_times_display"
+          :key="method"
+          class="flex justify-between"
+        >
           <span class="capitalize">{{ fixUnderscores(method) }}:</span>
           <span class="font-medium">{{ time }}</span>
         </div>
@@ -79,7 +87,7 @@ const ratingColor = computed(() => {
     case 1:
       return ['bg-orange-600', 'text-orange-600']
     case 2:
-      return ['bg-yellow-600', 'text-yellow-600'] 
+      return ['bg-yellow-600', 'text-yellow-600']
     case 3:
       return ['bg-lime-600', 'text-lime-600']
     case 4:
