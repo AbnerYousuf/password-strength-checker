@@ -1,6 +1,6 @@
 <template>
   <div
-    class="min-h-screen bg-linear-to-br from-white to-teal-200 flex flex-col items-center justify-center p-4"
+    class="min-h-screen flex flex-col items-center justify-center p-4"
   >
     <div><PageHeaderComponent /></div>
     <div><FormComponent /></div>
