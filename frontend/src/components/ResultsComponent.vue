@@ -6,13 +6,13 @@
     <div class="w-full mb-4">
       <div class="flex justify-between items-center mb-2">
         <span class="text-sm font-medium">Strength</span>
-        <span class="text-sm font-semibold" :class="'text-' + ratingColor">{{ passwordStrength }}</span>
+        <span class="text-sm font-semibold" :class="ratingColor[1]">{{ passwordStrength }}</span>
       </div>
       <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
         <div
           class="h-full transition-all duration-300 ease-out"
           :style="{ width: barSize + '%' }"
-          :class="'bg-' + ratingColor"
+          :class="ratingColor[0]"
         ></div>
       </div>
     </div>
@@ -75,17 +75,17 @@ const ratingColor = computed(() => {
   const score = props.results.score
   switch (score) {
     case 0:
-      return 'red-600'
+      return ['bg-red-600', 'text-red-600']
     case 1:
-      return 'orange-600'
+      return ['bg-orange-600', 'text-orange-600']
     case 2:
-      return 'yellow-600'
+      return ['bg-yellow-600', 'text-yellow-600'] 
     case 3:
-      return 'lime-600'
+      return ['bg-lime-600', 'text-lime-600']
     case 4:
-      return 'green-600'
+      return ['bg-green-600', 'text-green-600']
     default:
-      return 'gray-600'
+      return ['bg-gray-600', 'text-gray-600']
   }
 })
 
